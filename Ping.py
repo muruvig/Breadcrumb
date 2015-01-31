@@ -10,4 +10,3 @@ def ping():
 	connection.request('GET', '/api/location/v2/clients', headers=headers)
 	data = connection.getresponse().read()
 	return data.decode('utf-8')
-print(ping())
