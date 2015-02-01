@@ -6,11 +6,14 @@ def data():
 	client = MongoClient()
 	db = client.sb_hack
 	collection = db.workingData
-	coords = [['X', 'Y']]
-	for element in collection.find():
+	x_list = []
+	y_list = []
+	for element in collection.find().limit(100): #arbitrary limit of 100
 		current = element['location_list']
 		for location in current:
-			coords.append([location['mapCoordinate']['x'], location['mapCoordinate']['y']])
-	print(coords)
+			x_list.append(location['mapCoordinate']['x'])
+			y_list.append(location['mapCoordinate']['y'])
+	coords = [x_list, y_list]
+	return coords
 
 data()
