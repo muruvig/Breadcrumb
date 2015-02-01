@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+function Graph.prototype.update = function(){
+
+
+
+	var numPeople = this.People.length;
+	var grDuration = new jsGraphics(document.getElementById("canvas"));
+	var col = new jsColor("red");
+	var deleteCol = new jsColor("white");
+	var pen = new jsPen(col,1);
+	var deletePen = new jsPen(deleteCol,1);
+	var grLocation = new jsGraphics(document.getElementById("canvas"));
+	var grDuration = new jsGraphics(document.getElementById("canvas"));
+	var grVisits = new jsGraphics(document.getElementById("canvas"));
+
+	for(Person p: this.People){ //People is the ArrayList
+		if(p.exitTime() != -1){ //person has left
+
+			var ptDelL = new jsPoint(p.getx(), p.getY());
+		}
+		if(!peopleDict.contains(p)){ //the dictionary does not contain the person. In other words, the person is new to the store
+			var newPerson = [p.getID(), p];
+			newPerson.update();
+			peopleDict.append(newPerson);
+
+			var ptL = new jsPoint(p.getx(), p.getY());
+		}
+		else{
+			p.update();
+
+			var ptL = new jsPoint(p.getMac(), p.getx(), p.getY());
+
+		}
+	}
+}
+
+function Graph.prototype.draw = function(g){
+	var c  = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	ctx.strokerect(50, 50, g.getXDimen(), g.getYDimen());
+	ctx.scale(5,5);
+
+}
+
+var Person = function(macId, xLoc, yLoc, entryTime){
+	this.xLoc = x;
+	this.yLoc = y;
+	this.macID = macID;
+	this.timeEntered = entryTime.valueOf();
+	this.exitTime = -1;
+}
+
+function Person.prototype.update = function(xNew, yNew){
+		xLoc = xNew; 
+		yLoc = yNew; 
+	}
+function Person.prototype.getX= function(){
+		return this.xLoc;
+	}
+function Person.prototype.getY = function(){
+		return this.yLoc;
+	}
+function Person.prototype.getMac = function(){
+		return this.macID;
+	}
+function Person.prototype.getEntryTime = function(){
+		return this.timeEntered;
+	}
+function Person.prototype.getLeavingTime = function(){
+	return this.exitTime;
+}
+var Graph = function(xDimen, yDimen, people, person_dict){
+	this.xDim = xDimen;
+	this.yDim = yDimen;
+	this.people_list[] = people;
+	this.person_dict[][] = person_dict;
+}
+function Graph.prototype.getXDimen = function() {
+	return this.xDim;
+}
+function Graph.prototype.getYDimen = function() {
+	return this.yDim;
+}
+function Graph.prototype.getPeopleList = function(){
+	return this.people_list;
+}
+function Graph.prototype.getPersonDict = function(){
+	return this.person_dict;
+}
+
+var person_dict[][]= [][];
+var g = new Graph(xDimen, yDimen, people, person_dict);
+g.update();
+g.draw();
+
+
+}
+
+</script> 
+
+</body>
+</html>
