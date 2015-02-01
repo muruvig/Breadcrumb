@@ -2,19 +2,27 @@
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-        var data = //????????????
-         var json = JSON.parse(data);
-        xCoord, yCoord, macIDs, entryTime, exitTime = [],[],[],[],[];
-        room_width = JSON.parse("width");
-        room_length = JSON.parse("height");
-
-      for (Object obj : json){
-        xCoord.push(JSON.parse("x"));
-        yCoord.push(JSON.parse("y"));
-        macIDs.push(JSON.parse("apMacAddress"));
-        entryTime.push(JSON.parse("firstLocatedTime"));
-        exitTime.push(JSON.parse("lastLocatedTime"));
-       }
+//        $.ajax({
+//        type: 'POST',
+//        url: "C:\Users\Vignesh\DOcuemnts\Hackathon\Loyalty\Request.py",
+//        dataType: "json",
+//        success: function(response){
+//           data = response;
+//        }
+//        }).done(function(data){
+//        console.log(data);
+//        });
+//        var json = JSON.parse(data);
+//        xCoord, yCoord, macIDs, entryTime, exitTime = [],[],[],[],[];
+//        room_width = JSON.parse("width");
+//        room_length = JSON.parse("height");
+//      for (Object obj : json){
+//        xCoord.push(JSON.parse("x"));
+//        yCoord.push(JSON.parse("y"));
+//        macIDs.push(JSON.parse("apMacAddress"));
+//        entryTime.push(JSON.parse("firstLocatedTime"));
+//        exitTime.push(JSON.parse("lastLocatedTime"));
+//       }
        coords = [['X', 'Y']]
        for(i=0; i< xCoord.length; i++){
           coords.push([xCoord[i], yCoord[i]]);
