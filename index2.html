@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+         var json = JSON.parse(data);
+        xCoord, yCoord, macIDs, entryTime, exitTime = [],[],[],[],[];
+        room_width = JSON.parse("width");
+        room_length = JSON.parse("height");
+
+      for (Object obj : json){
+        xCoord.push(JSON.parse("x"));
+        yCoord.push(JSON.parse("y"));
+        macIDs.push(JSON.parse("apMacAddress"));
+        entryTime.push(JSON.parse("firstLocatedTime"));
+        exitTime.push(JSON.parse("lastLocatedTime"));
+       }
+       coords = [['X', 'Y']]
+       for(i=0; i< xCoord.length; i++){
+          coords.push([xCoord[i], yCoord[i]]);
+       }
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          coords
+        ]);
+
+        var options = {
+          title: 'Age vs. Weight comparison',
+          hAxis: {title: 'X', minValue: -room_width, maxValue: room_width},
+          vAxis: {title: 'Y', minValue: -room_length, maxValue: room_length},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
