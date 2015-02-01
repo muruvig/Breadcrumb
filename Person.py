@@ -12,4 +12,3 @@ class Person:
 
 	def append(visit):
 		self.visits.append(visit)
-	
